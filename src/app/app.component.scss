@@ -1,0 +1,37 @@
+$logo-height: 10vh;
+$footer-height: 8vh;
+$content-height: calc(100vh - $logo-height - $footer-height);
+
+.container-height {
+  height: calc(100vh - $footer-height);
+}
+
+.img-container {
+  height: $logo-height;
+}
+
+footer {
+  height: $footer-height;
+}
+
+.content-container {
+  height: $content-height;
+}
+
+a {
+  color: black;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+a > span {
+  padding: .5em;
+}
+
+
+a > span:hover {
+  border-radius: 15%;
+  background-color: #d3d1d1;
+}

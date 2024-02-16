@@ -1,0 +1,61 @@
+<div class="card w-50 m-auto">
+  <div class="card-body">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+      <li ngbNavItem="example">
+        <button ngbNavLink>Example</button>
+        <ng-template ngbNavContent>
+          <div class="row m-0">
+            <div class="col-12 border-bottom py-3">
+              <button class="btn btn-primary me-2" (click)="openAll.emit()">Open All</button>
+              <button class="btn btn-primary me-2" (click)="closeAll.emit()">Close All</button>
+              <button class="btn btn-primary" *ngIf="openItemList && openItemList.length > 0" (click)="showOpenListItem()">Show Open List Item</button>
+            </div>
+            <div *ngIf="changeItemStatus" class="col-12 border-bottom py-3">
+              {{changeItemStatus | json}}
+            </div>
+            <div class="col-12">
+              <nx-tree-gle [element]="element"
+                           [openAll]="openAll"
+                           [closeAll]="closeAll"
+                           [otherFunction]="otherFunction"
+                           (changeItemStatus)="changeItemStatus = $event"
+                           (listOpenedItem)="openItemList = $event"
+                           openDefaultIcon="<i class='bi bi-chevron-down'></i>"
+                           closeDefaultIcon="<i class='bi bi-chevron-right'></i>"
+              ></nx-tree-gle>
+            </div>
+          </div>
+        </ng-template>
+      </li>
+      <li ngbNavItem="code - HTML">
+        <button ngbNavLink>Code - HTML</button>
+        <ng-template ngbNavContent>
+          <pre>
+            <code lang="html">{{inhtml}}
+            </code>
+          </pre>
+        </ng-template>
+      </li>
+      <li ngbNavItem="code - TS">
+        <button ngbNavLink>Code - TS</button>
+        <ng-template ngbNavContent>
+          <pre>
+            <code lang="ts">{{ints}}
+            </code>
+          </pre>
+        </ng-template>
+      </li>
+      <li ngbNavItem="Install">
+        <button ngbNavLink>Install</button>
+        <ng-template ngbNavContent>
+          <pre>
+            <code>{{install}}
+            </code>
+          </pre>
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>
+

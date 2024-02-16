@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "nx-library-demo": {
+    "nx-libraries-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/nx-library-demo",
+            "outputPath": "dist/nx-libraries-demo",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "nx-library-demo:build:production"
+              "buildTarget": "nx-libraries-demo:build:production"
             },
             "development": {
-              "buildTarget": "nx-library-demo:build:development"
+              "buildTarget": "nx-libraries-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "nx-library-demo:build"
+            "buildTarget": "nx-libraries-demo:build"
           }
         },
         "test": {
