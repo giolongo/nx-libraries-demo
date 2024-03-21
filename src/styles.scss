@@ -3,10 +3,24 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
 body {
   height: 100vh;
 }
 
-.font-weight-bold {
-  font-weight: bold;
+.card-w {
+  width: 50%;
+}
+
+.content-height {
+  height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .content-height {
+    height: 80vh;
+  }
+  .card-w {
+    width: 100%;
+  }
 }
