@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from "./components/home/home.component";
 import {NxTreeGleUseComponent} from "./components/nx-tree-gle-use/nx-tree-gle-use.component";
+import {
+  NxDraggableCarouselUseComponent
+} from "./components/nx-draggable-carousel-use/nx-draggable-carousel-use.component";
 
 export const routes: Routes = [
   {
@@ -18,6 +21,12 @@ export const routes: Routes = [
     title: 'nx-tree-gle',
     path: 'nx-tree-glee',
     component: NxTreeGleUseComponent,
+    pathMatch: 'full'
+  },
+  {
+    title: 'nx-draggable-carousel',
+    path: 'nx-draggable-carousel',
+    component: NxDraggableCarouselUseComponent,
     pathMatch: 'full'
   },
   {

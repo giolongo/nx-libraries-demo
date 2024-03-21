@@ -1,0 +1,58 @@
+<div class="card w-50 m-auto">
+  <div class="card-body">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+      <li ngbNavItem="example">
+        <button ngbNavLink>Example</button>
+        <ng-template ngbNavContent>
+          <div class="row m-0">
+            <div class="col-12 border-bottom py-3">
+              <div class="form-group">
+                <label for="automove_dobounce">Enabled/Disabled Automove</label>
+                <input type="number" [(ngModel)]="automoveDebounce" class="form-control" id="automove_dobounce" step="1" placeholder="0 for No Automove, suggest 85">
+              </div>
+            </div>
+            <div class="col-12 mt-2">
+              <nx-draggable-carousel
+                [debounceAutoMove]="automoveDebounce"
+                [maxHeight]="'100%'"
+                [maxWidth]="'100%'"
+                [elementHeight]="'100%'"
+                [elementWidth]="'50%'"
+                [elements]="elements"
+              ></nx-draggable-carousel>
+            </div>
+          </div>
+        </ng-template>
+      </li>
+      <li ngbNavItem="code - HTML">
+        <button ngbNavLink>Code - HTML</button>
+        <ng-template ngbNavContent>
+          <pre>
+            <code lang="html">{{inhtml}}
+            </code>
+          </pre>
+        </ng-template>
+      </li>
+      <li ngbNavItem="code - TS">
+        <button ngbNavLink>Code - TS</button>
+        <ng-template ngbNavContent>
+          <pre>
+            <code lang="ts">{{ints}}
+            </code>
+          </pre>
+        </ng-template>
+      </li>
+      <li ngbNavItem="Install">
+        <button ngbNavLink>Install</button>
+        <ng-template ngbNavContent>
+          <pre>
+            <code>{{install}}
+            </code>
+          </pre>
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>
+
