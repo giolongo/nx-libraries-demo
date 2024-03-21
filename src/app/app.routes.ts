@@ -18,8 +18,8 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    title: 'nx-tree-gle',
-    path: 'nx-tree-glee',
+    title: 'nx-tree',
+    path: 'nx-tree',
     component: NxTreeGleUseComponent,
     pathMatch: 'full'
   },

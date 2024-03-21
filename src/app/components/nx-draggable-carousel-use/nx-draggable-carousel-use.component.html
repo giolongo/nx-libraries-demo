@@ -1,4 +1,4 @@
-<div class="card w-50 m-auto">
+<div class="card card-w m-auto">
   <div class="card-body">
     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
       <li ngbNavItem="example">
@@ -8,7 +8,8 @@
             <div class="col-12 border-bottom py-3">
               <div class="form-group">
                 <label for="automove_dobounce">Enabled/Disabled Automove</label>
-                <input type="number" [(ngModel)]="automoveDebounce" class="form-control" id="automove_dobounce" step="1" placeholder="0 for No Automove, suggest 85">
+                <input type="number" [(ngModel)]="automoveDebounce" class="form-control" id="automove_dobounce"
+                       step="1" placeholder="0 for No Automove, suggest 85">
               </div>
             </div>
             <div class="col-12 mt-2">
@@ -55,4 +56,3 @@
     <div [ngbNavOutlet]="nav" class="mt-2"></div>
   </div>
 </div>
-
