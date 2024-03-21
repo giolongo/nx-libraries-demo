@@ -19,7 +19,7 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
-    "@giolongo/nx-draggable-carousel": "^1.0.2",
+    "@giolongo/nx-draggable-carousel": "^1.0.3",
     "@giolongo/nx-tree": "^1.0.7",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "@popperjs/core": "^2.11.8",
