@@ -1,18 +1,17 @@
 <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top h-100 p-0">
-  <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip"
-     data-bs-placement="right" data-bs-original-title="Icon-only">
-    <i class="bi-bootstrap fs-2"></i>
+  <a [routerLink]="['./home']" class="d-block p-3 link-dark text-decoration-none">
+    <img src="assets/logo.png">
   </a>
   <ul
     class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center justify-content-start w-100 px-3 align-items-center">
     <li class="nav-item">
-      <a [routerLink]="['./nx-tree']" routerLinkActive="font-weight-bold" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
+      <a [routerLink]="['./nx-tree']" routerLinkActive="font-weight-bold" class="nav-link py-3 px-2"
          data-bs-original-title="Home">
         <i class="bi-tree-fill fs-2"></i>
       </a>
     </li>
     <li>
-      <a [routerLink]="['./nx-draggable-carousel']" routerLinkActive="font-weight-bold" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
+      <a [routerLink]="['./nx-draggable-carousel']" routerLinkActive="font-weight-bold" class="nav-link py-3 px-2"
          data-bs-original-title="Dashboard">
         <i class="bi-list-columns fs-2"></i>
       </a>

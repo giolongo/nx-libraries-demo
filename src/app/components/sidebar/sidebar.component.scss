@@ -1,0 +1,9 @@
+img {
+  width: 8vw;
+}
+@media only screen and (max-width: 600px) {
+  img {
+    width: 15vw;
+    height: 5vh;
+  }
+}
