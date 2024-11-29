@@ -3,24 +3,11 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import 'highlight.js/styles/github.css';
 
 body {
   height: 100vh;
+  width: 100vw;
 }
 
-.card-w {
-  width: 50%;
-}
-
-.content-height {
-  height: 100vh;
-}
-
-@media only screen and (max-width: 600px) {
-  .content-height {
-    height: 80vh;
-  }
-  .card-w {
-    width: 100%;
-  }
-}
+a { color: inherit; }

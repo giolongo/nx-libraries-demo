@@ -1,37 +1,120 @@
-$logo-height: 10vh;
-$footer-height: 8vh;
-$content-height: calc(100vh - $logo-height - $footer-height);
+//$logo-height: 10vh;
+//$content-height: calc(100vh - $logo-height - $footer-height);
 
-.container-height {
-  height: calc(100vh - $footer-height);
+$footer-height: 5vh;
+$sidebar-width: 10vh;
+$container-max-height: calc(100vh - $footer-height);
+
+.content {
+  position: absolute;
+  height: 100%;
+  max-height: $container-max-height;
+  width: 100vw;
 }
 
-.img-container {
-  height: $logo-height;
+.open-sidebar {
+  position: absolute;
+  top: 50vh;
+  cursor: pointer;
+  left: .5vh;
+  transition: left .7s, rotate .5s;
+  z-index: 3;
+  border: .5pixe solid black;
+  font-size: xx-large;
 }
 
-footer {
+app-sidebar {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 3s;
+}
+
+app-sidebar.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.open-sidebar.show {
+  left: calc($sidebar-width + 1vh);
+  rotate: 180deg;
+  color: white;
+}
+
+.sidebar {
+  position: fixed;
+  width: 0;
+  height: 100vh;
+  z-index: 4;
+  transition: width .7s;
+  background-image: linear-gradient(#b4efe7, #ffffff);
+}
+
+.sidebar.show {
+  width: $sidebar-width;
+  border-right: 2px solid black;
+}
+
+.footer {
+  border-top: 2px solid black;
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  background-image: linear-gradient(#ffffff, #b4efe7);
   height: $footer-height;
+  top: $container-max-height;
+  z-index: 3;
 }
 
-.content-container {
-  height: $content-height;
+#logo {
+  margin-left: $sidebar-width
 }
 
-a {
-  color: black;
+.overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(58, 58, 58, 0.49);
+  z-index: 2;
+  display: none;
 }
 
-a:link, a:visited, a:hover, a:active {
-  text-decoration: none;
-}
-
-a > span {
-  padding: .5em;
+.overlay.show {
+  display: block;
 }
 
 
-a > span:hover {
-  border-radius: 15%;
-  background-color: #d3d1d1;
+
+
+
+.background-circles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Mandiamo i cerchi dietro il contenuto */
+}
+
+.background-circles::before,
+.background-circles::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(180, 239, 231, 0.5); /* Colore cerchio principale (Cornflower Blue) */
+  filter: blur(50px); /* Effetto leggero */
+}
+
+.background-circles::before {
+  width: 75vw;
+  height: 75vh;
+  top: -100px;
+  left: -100px;
+}
+
+.background-circles::after {
+  width: 75vw;
+  height: 75vh;
+  bottom: -150px;
+  right: -150px;
+  background: rgba(180, 239, 231, 0.5); /* Colore cerchio secondario (Light Pink) */
 }

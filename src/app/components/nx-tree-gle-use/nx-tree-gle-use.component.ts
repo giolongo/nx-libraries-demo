@@ -2,6 +2,8 @@ import {Component, EventEmitter} from '@angular/core';
 import {NxTreeGleComponent} from "@giolongo/nx-tree";
 import {JsonPipe, NgIf} from "@angular/common";
 import {NgbNavModule} from "@ng-bootstrap/ng-bootstrap";
+import {Highlight} from "ngx-highlightjs";
+import {ClipboardModule} from "ngx-clipboard";
 
 @Component({
   selector: 'app-nx-tree-gle-use',
@@ -10,7 +12,9 @@ import {NgbNavModule} from "@ng-bootstrap/ng-bootstrap";
     NxTreeGleComponent,
     JsonPipe,
     NgbNavModule,
-    NgIf
+    NgIf,
+    Highlight,
+    ClipboardModule
   ],
   templateUrl: './nx-tree-gle-use.component.html',
   styleUrl: './nx-tree-gle-use.component.scss'
@@ -54,15 +58,16 @@ export class NxTreeGleUseComponent {
     }
   }
 
-  public inhtml = `<nx-tree-gle [element]="element"
-                        [openAll]="openAll"
-                        [closeAll]="closeAll"
-                        [otherFunction]="otherFunction"
-                        (changeItemStatus)="changeItemStatus = $event"
-                        (listOpenedItem)="openItemList = $event"
-                        openDefaultIcon="<i class='bi bi-chevron-down'></i>"
-                        closeDefaultIcon="<i class='bi bi-chevron-right'></i>"
-           ></nx-tree-gle>`
+  public inhtml = `
+<nx-tree-gle [element]="element"
+             [openAll]="openAll"
+             [closeAll]="closeAll"
+             [otherFunction]="otherFunction"
+             (changeItemStatus)="changeItemStatus = $event"
+             (listOpenedItem)="openItemList = $event"
+             openDefaultIcon="<i class='bi bi-chevron-down'></i>"
+             closeDefaultIcon="<i class='bi bi-chevron-right'></i>">+
+</nx-tree-gle>`
   public install = `npm install nx-tree-gle`
 
   public ints = `
