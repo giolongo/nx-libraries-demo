@@ -1,37 +1,65 @@
-$logo-height: 10vh;
-$footer-height: 8vh;
-$content-height: calc(100vh - $logo-height - $footer-height);
+//$logo-height: 10vh;
+//$content-height: calc(100vh - $logo-height - $footer-height);
 
-.container-height {
-  height: calc(100vh - $footer-height);
+$footer-height: 5vh;
+$sidebar-width: 10vh;
+$container-min-height: calc(100vh - $footer-height);
+
+.content {
+  position: absolute;
+  min-height: $container-min-height;
+  width: 100vw;
 }
 
-.img-container {
-  height: $logo-height;
+.open-sidebar {
+  position: absolute;
+  top: 50vh;
+  cursor: pointer;
+  left: .5vh;
+  transition: left .7s, rotate .5s;
 }
 
-footer {
+app-sidebar {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 3s;
+}
+
+app-sidebar.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.open-sidebar.show {
+  left: calc($sidebar-width + 1vh);
+  rotate: 180deg;
+}
+
+.sidebar {
+  position: fixed;
+  width: 0;
+  height: 100vh;
+  z-index: 2;
+  transition: width .7s;
+  background-image: linear-gradient(#a8efe5, #ffffff);
+}
+
+.sidebar.show {
+  width: $sidebar-width;
+  border-right: 2px solid black;
+}
+
+.footer {
+  border-top: 2px solid black;
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  background-image: linear-gradient(#ffffff, #a8efe5);
   height: $footer-height;
+  top: $container-min-height;
+  z-index: 1;
 }
 
-.content-container {
-  height: $content-height;
-}
-
-a {
-  color: black;
-}
-
-a:link, a:visited, a:hover, a:active {
-  text-decoration: none;
-}
-
-a > span {
-  padding: .5em;
-}
-
-
-a > span:hover {
-  border-radius: 15%;
-  background-color: #d3d1d1;
+#logo {
+  margin-left: $sidebar-width
 }

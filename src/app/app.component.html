@@ -1,16 +1,38 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-auto bg-light sticky-top p-0">
-      <app-sidebar></app-sidebar>
-    </div>
-    <div class="col-sm p-0">
-      <div class="content-height">
-        <div class="row m-0 h-100">
-          <div class="col m-auto">
-            <router-outlet></router-outlet>
-          </div>
-        </div>
-      </div>
-    </div>
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-auto bg-light sticky-top p-0">-->
+<!--      <app-sidebar></app-sidebar>-->
+<!--    </div>-->
+<!--    <div class="col-sm p-0">-->
+<!--      <div class="content-height">-->
+<!--        <div class="row m-0 h-100">-->
+<!--          <div class="col m-auto">-->
+<!--            <router-outlet></router-outlet>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<div class="sidebar" [ngClass]="{'show' : showSidebar}">
+  <app-sidebar [ngClass]="{'show' : showSidebar}"></app-sidebar>
+</div>
+<div class="footer flex-row">
+  <img id="logo" src="assets/logo.png"/>
+  <div class="ms-auto me-2 d-flex flex-row">
+    <a href="https://www.linkedin.com/in/giovanni-emanuele-longo-716b2a100/" class="w-100 my-auto me-2" target="_blank">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="https://github.com/giolongo" class="w-100 my-auto me-2" target="_blank">
+      <i class="bi bi-github"></i>
+    </a>
+    <img class="w-100 h-100" src="assets/gle.png"/>
   </div>
 </div>
+<div class="open-sidebar" [ngClass]="{'show' : showSidebar}" (click)="showSidebar = !showSidebar">
+  <i class="bi bi-chevron-compact-right"></i>
+</div>
+
