@@ -3,11 +3,12 @@
 
 $footer-height: 5vh;
 $sidebar-width: 10vh;
-$container-min-height: calc(100vh - $footer-height);
+$container-max-height: calc(100vh - $footer-height);
 
 .content {
   position: absolute;
-  min-height: $container-min-height;
+  height: 100%;
+  max-height: $container-max-height;
   width: 100vw;
 }
 
@@ -17,6 +18,9 @@ $container-min-height: calc(100vh - $footer-height);
   cursor: pointer;
   left: .5vh;
   transition: left .7s, rotate .5s;
+  z-index: 3;
+  border: .5pixe solid black;
+  font-size: xx-large;
 }
 
 app-sidebar {
@@ -33,15 +37,16 @@ app-sidebar.show {
 .open-sidebar.show {
   left: calc($sidebar-width + 1vh);
   rotate: 180deg;
+  color: white;
 }
 
 .sidebar {
   position: fixed;
   width: 0;
   height: 100vh;
-  z-index: 2;
+  z-index: 4;
   transition: width .7s;
-  background-image: linear-gradient(#a8efe5, #ffffff);
+  background-image: linear-gradient(#b4efe7, #ffffff);
 }
 
 .sidebar.show {
@@ -54,12 +59,62 @@ app-sidebar.show {
   position: fixed;
   display: flex;
   width: 100vw;
-  background-image: linear-gradient(#ffffff, #a8efe5);
+  background-image: linear-gradient(#ffffff, #b4efe7);
   height: $footer-height;
-  top: $container-min-height;
-  z-index: 1;
+  top: $container-max-height;
+  z-index: 3;
 }
 
 #logo {
   margin-left: $sidebar-width
+}
+
+.overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(58, 58, 58, 0.49);
+  z-index: 2;
+  display: none;
+}
+
+.overlay.show {
+  display: block;
+}
+
+
+
+
+
+.background-circles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Mandiamo i cerchi dietro il contenuto */
+}
+
+.background-circles::before,
+.background-circles::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(180, 239, 231, 0.5); /* Colore cerchio principale (Cornflower Blue) */
+  filter: blur(50px); /* Effetto leggero */
+}
+
+.background-circles::before {
+  width: 75vw;
+  height: 75vh;
+  top: -100px;
+  left: -100px;
+}
+
+.background-circles::after {
+  width: 75vw;
+  height: 75vh;
+  bottom: -150px;
+  right: -150px;
+  background: rgba(180, 239, 231, 0.5); /* Colore cerchio secondario (Light Pink) */
 }

@@ -1,24 +1,10 @@
-<!--<div class="container-fluid">-->
-<!--  <div class="row">-->
-<!--    <div class="col-sm-auto bg-light sticky-top p-0">-->
-<!--      <app-sidebar></app-sidebar>-->
-<!--    </div>-->
-<!--    <div class="col-sm p-0">-->
-<!--      <div class="content-height">-->
-<!--        <div class="row m-0 h-100">-->
-<!--          <div class="col m-auto">-->
-<!--            <router-outlet></router-outlet>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="background-circles"></div>
+<div class="overlay" [ngClass]="{'show' : showSidebar}"></div>
 <div class="content">
   <router-outlet></router-outlet>
 </div>
 <div class="sidebar" [ngClass]="{'show' : showSidebar}">
-  <app-sidebar [ngClass]="{'show' : showSidebar}"></app-sidebar>
+  <app-sidebar (closeSidebar)="showSidebar = false" [ngClass]="{'show' : showSidebar}"></app-sidebar>
 </div>
 <div class="footer flex-row">
   <img id="logo" src="assets/logo.png"/>
@@ -29,7 +15,9 @@
     <a href="https://github.com/giolongo" class="w-100 my-auto me-2" target="_blank">
       <i class="bi bi-github"></i>
     </a>
-    <img class="w-100 h-100" src="assets/gle.png"/>
+    <a href="https://giolongo.github.io/giolongo/" class="w-100" target="_blank">
+      <img class="h-100" src="assets/gle.png"/>
+    </a>
   </div>
 </div>
 <div class="open-sidebar" [ngClass]="{'show' : showSidebar}" (click)="showSidebar = !showSidebar">

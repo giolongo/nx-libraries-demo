@@ -1,13 +1,22 @@
 <div class="d-flex flex-column w-100 h-100">
   <div class="mt-2 mb-auto">
-    <img class="w-100 h-100" src="assets/gle.png"/>
+    <a href="https://giolongo.github.io/giolongo/" target="_blank">
+      <img class="h-100 w-100" src="assets/gle.png"/>
+    </a>
   </div>
   <div class="d-flex flex-column mx-auto">
-    <a [routerLink]="['./nx-tree']" routerLinkActive="font-weight-bold" class="nav-link"
+    <a [routerLink]="['./home']" routerLinkActive="active" class="nav-link"
+       (click)="closeSidebar.emit()"
+       data-bs-original-title="Home">
+      <i class="bi bi-house fs-2"></i>
+    </a>
+    <a [routerLink]="['./nx-tree']" routerLinkActive="active" class="nav-link"
+       (click)="closeSidebar.emit()"
        data-bs-original-title="Home">
       <i class="bi-tree-fill fs-2"></i>
     </a>
-    <a [routerLink]="['./nx-draggable-carousel']" routerLinkActive="font-weight-bold" class="nav-link"
+    <a [routerLink]="['./nx-draggable-carousel']" routerLinkActive="active" class="nav-link"
+       (click)="closeSidebar.emit()"
        data-bs-original-title="Dashboard">
       <i class="bi-list-columns fs-2"></i>
     </a>

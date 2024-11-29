@@ -2,6 +2,10 @@ import {Component} from '@angular/core';
 import {NgbNavModule} from "@ng-bootstrap/ng-bootstrap";
 import {NxDraggableCarouselComponent} from "@giolongo/nx-draggable-carousel";
 import {FormsModule} from "@angular/forms";
+import {ClipboardModule} from "ngx-clipboard";
+import {JsonPipe, NgIf} from "@angular/common";
+import {NxTreeGleComponent} from "@giolongo/nx-tree";
+import {Highlight} from "ngx-highlightjs";
 
 @Component({
   selector: 'app-nx-draggable-carousel-use',
@@ -9,7 +13,12 @@ import {FormsModule} from "@angular/forms";
   imports: [
     NxDraggableCarouselComponent,
     NgbNavModule,
-    FormsModule
+    FormsModule,
+    ClipboardModule,
+    JsonPipe,
+    NgIf,
+    NxTreeGleComponent,
+    Highlight
   ],
   templateUrl: './nx-draggable-carousel-use.component.html',
   styleUrl: './nx-draggable-carousel-use.component.scss'
@@ -42,14 +51,15 @@ export class NxDraggableCarouselUseComponent {
     '</div>'
   ];
 
-  public inhtml = `<nx-draggable-carousel
-                [debounceAutoMove]="automoveDebounce"
-                [maxHeight]="'100%'"
-                [maxWidth]="'100%'"
-                [elementHeight]="'100%'"
-                [elementWidth]="'50%'"
-                [elements]="elements"
-              ></nx-draggable-carousel>`;
+  public inhtml = `
+<nx-draggable-carousel
+    [debounceAutoMove]="automoveDebounce"
+    [maxHeight]="'100%'"
+    [maxWidth]="'100%'"
+    [elementHeight]="'100%'"
+    [elementWidth]="'50%'"
+    [elements]="elements"
+  ></nx-draggable-carousel>`;
   public install = `npm i @giolongo/nx-draggable-carousel`;
   public ints = `@Component({
   selector: 'app-nx-draggable-carousel-use',
